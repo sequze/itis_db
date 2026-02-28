@@ -1,0 +1,13 @@
+ALTER TABLE subscription
+    ADD COLUMN created_at TIMESTAMP NOT NULL DEFAULT NOW();
+
+ALTER TABLE genre
+    ADD COLUMN description TEXT,
+    ADD COLUMN is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    ADD COLUMN created_at TIMESTAMP NOT NULL DEFAULT NOW();
+
+ALTER TABLE "like"
+    ADD COLUMN reaction_type VARCHAR(16) NOT NULL DEFAULT 'like';
+
+ALTER TABLE follow
+    ADD COLUMN notifications_enabled BOOLEAN NOT NULL DEFAULT TRUE;
