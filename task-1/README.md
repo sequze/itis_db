@@ -26,7 +26,7 @@
   - `track_profile.review_text` + GIN индекс `to_tsvector('russian', ...)`
   - `user_profile.bio` + GIN индекс `to_tsvector('russian', ...)`
 
-- Массивы или JSONB:
+- JSONB:
   - `track_profile.extra_data` (`JSONB`)
   - `user_profile.preferences` (`JSONB`)
 
