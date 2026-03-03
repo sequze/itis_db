@@ -1,0 +1,23 @@
+pg_stat_statements_by_verb:
+  query: |
+    SELECT
+      CASE
+        WHEN upper(ltrim(query)) LIKE 'SELECT%' THEN 'SELECT'
+        WHEN upper(ltrim(query)) LIKE 'INSERT%' THEN 'INSERT'
+        WHEN upper(ltrim(query)) LIKE 'DELETE%' THEN 'DELETE'
+        ELSE 'OTHER'
+      END AS verb,
+      sum(calls) AS calls,
+      sum(total_exec_time) AS total_exec_time_ms
+    FROM pg_stat_statements
+    GROUP BY 1;
+  metrics:
+    - verb:
+        usage: "LABEL"
+        description: "SQL verb"
+    - calls:
+        usage: "COUNTER"
+        description: "Number of calls by verb (pg_stat_statements)"
+    - total_exec_time_ms:
+        usage: "COUNTER"
+        description: "Total execution time in ms by verb (pg_stat_statements)"

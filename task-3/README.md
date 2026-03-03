@@ -293,3 +293,7 @@ JOIN listening_history lh ON lh.track_id = t.id;
 
 Результат объединения: Hash Join (хэш таблица по track.id)
 ![join_5.png](screenshots/join_5.png)
+
+Построил дашборд в Grafana:
+
+![dashboard.png](screenshots/dashboard.png)
