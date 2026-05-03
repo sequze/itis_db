@@ -1,0 +1,53 @@
+{
+  "name": "Motor current",
+  "properties": {
+    "type": "xy",
+    "shape": "chronograf-v2",
+    "geom": "line",
+    "position": "overlaid",
+    "xColumn": "_time",
+    "yColumn": "_value",
+    "queries": [
+      {
+        "name": "Motor current",
+        "editMode": "advanced",
+        "text": "from(bucket: \"mybucket\") |> range(start: -30m) |> filter(fn: (r) => r._measurement == \"current\")"
+      }
+    ],
+    "axes": {
+      "x": {
+        "label": "time",
+        "scale": "linear",
+        "base": "10"
+      },
+      "y": {
+        "label": "A",
+        "scale": "linear",
+        "base": "10"
+      }
+    },
+    "colors": [
+      {
+        "id": "current-min",
+        "type": "scale",
+        "hex": "#00D4FF",
+        "name": "cyan",
+        "value": 0
+      },
+      {
+        "id": "current-max",
+        "type": "scale",
+        "hex": "#39FF14",
+        "name": "neon green",
+        "value": 200
+      }
+    ],
+    "legendColorizeRows": true,
+    "legendHide": false,
+    "legendOpacity": 1,
+    "hoverDimension": "auto",
+    "shadeBelow": false,
+    "note": "",
+    "showNoteWhenEmpty": false
+  }
+}

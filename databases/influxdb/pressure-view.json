@@ -1,0 +1,53 @@
+{
+  "name": "Pipeline pressure",
+  "properties": {
+    "type": "xy",
+    "shape": "chronograf-v2",
+    "geom": "line",
+    "position": "overlaid",
+    "xColumn": "_time",
+    "yColumn": "_value",
+    "queries": [
+      {
+        "name": "Pipeline pressure",
+        "editMode": "advanced",
+        "text": "from(bucket: \"mybucket\") |> range(start: -30m) |> filter(fn: (r) => r._measurement == \"pressure\")"
+      }
+    ],
+    "axes": {
+      "x": {
+        "label": "time",
+        "scale": "linear",
+        "base": "10"
+      },
+      "y": {
+        "label": "bar",
+        "scale": "linear",
+        "base": "10"
+      }
+    },
+    "colors": [
+      {
+        "id": "pressure-min",
+        "type": "scale",
+        "hex": "#FFD400",
+        "name": "yellow",
+        "value": 0
+      },
+      {
+        "id": "pressure-max",
+        "type": "scale",
+        "hex": "#FF4FD8",
+        "name": "magenta",
+        "value": 6
+      }
+    ],
+    "legendColorizeRows": true,
+    "legendHide": false,
+    "legendOpacity": 1,
+    "hoverDimension": "auto",
+    "shadeBelow": false,
+    "note": "",
+    "showNoteWhenEmpty": false
+  }
+}
