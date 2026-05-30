@@ -10,8 +10,8 @@ from faker import Faker
 DB_HOST = "localhost"
 DB_PORT = 5432
 DB_NAME = "music"
-DB_USER = "user"
-DB_PASSWORD = "password"
+DB_USER = "your_user"
+DB_PASSWORD = "your_password"
 
 # Объемы данных
 USERS_COUNT = 250_000
