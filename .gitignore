@@ -1,3 +1,11 @@
 ﻿.env
 .idea/
 venv/
+databases/neo4j/logs
+databases/neo4j/data
+databases/neo4j/import
+task-8/target
+task-10/airflow/.env
+task-10/airflow/logs/
+task-10/airflow/config/airflow.cfg
+task-10/airflow/**/__pycache__/

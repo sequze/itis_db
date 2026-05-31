@@ -63,9 +63,27 @@
     depends_on:
       - prometheus
 
+  clickhouse:
+    image: clickhouse/clickhouse-server:25.4
+    environment:
+      CLICKHOUSE_DB: analytics
+      CLICKHOUSE_USER: analytics
+      CLICKHOUSE_PASSWORD: analytics123
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: 1
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+    healthcheck:
+      test: ["CMD", "clickhouse-client", "--query", "SELECT 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
 
 volumes:
   pgdata:
   prometheus_data:
   grafana_data:
-
+  clickhouse_data:

@@ -1,0 +1,4 @@
+email,username,password_hash,country,date_joined,subscription_name
+alice@example.com,alice,hash_alice,Russia,2024-01-10,Premium
+bob@example.com,bob,hash_bob,Germany,2024-02-15,Free
+carol@example.com,carol,hash_carol,France,2024-03-20,Family
